@@ -14,6 +14,7 @@ namespace FacturerLitePro
     {
         public Form1()
         {
+            //hola
             InitializeComponent();
         }
     }
