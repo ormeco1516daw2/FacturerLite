@@ -30,13 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.productesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.pcgroundDataSet = new FacturerLitePro.pcgroundDataSet();
             this.Clients = new System.Windows.Forms.TabPage();
-            this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.clientsTableAdapter = new FacturerLitePro.pcgroundDataSetTableAdapters.clientsTableAdapter();
-            this.tableAdapterManager = new FacturerLitePro.pcgroundDataSetTableAdapters.TableAdapterManager();
-            this.productesTableAdapter = new FacturerLitePro.pcgroundDataSetTableAdapters.productesTableAdapter();
             this.clientsDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,41 +43,50 @@
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.clientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.pcgroundDataSet = new FacturerLitePro.pcgroundDataSet();
             this.Productes = new System.Windows.Forms.TabPage();
-            this.Factures = new System.Windows.Forms.TabPage();
             this.productesDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.facturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.facturaTableAdapter = new FacturerLitePro.pcgroundDataSetTableAdapters.facturaTableAdapter();
+            this.productesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Factures = new System.Windows.Forms.TabPage();
             this.facturaDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.facturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.FacturaDetall = new System.Windows.Forms.TabPage();
-            this.factura_detallBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.factura_detallTableAdapter = new FacturerLitePro.pcgroundDataSetTableAdapters.factura_detallTableAdapter();
             this.factura_detallDataGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.factura_detallBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.clientsTableAdapter = new FacturerLitePro.pcgroundDataSetTableAdapters.clientsTableAdapter();
+            this.tableAdapterManager = new FacturerLitePro.pcgroundDataSetTableAdapters.TableAdapterManager();
+            this.productesTableAdapter = new FacturerLitePro.pcgroundDataSetTableAdapters.productesTableAdapter();
+            this.facturaTableAdapter = new FacturerLitePro.pcgroundDataSetTableAdapters.facturaTableAdapter();
+            this.factura_detallTableAdapter = new FacturerLitePro.pcgroundDataSetTableAdapters.factura_detallTableAdapter();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.productesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcgroundDataSet)).BeginInit();
             this.Clients.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcgroundDataSet)).BeginInit();
             this.Productes.SuspendLayout();
-            this.Factures.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productesDataGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productesBindingSource)).BeginInit();
+            this.Factures.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.facturaDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource)).BeginInit();
             this.FacturaDetall.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.factura_detallBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.factura_detallDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factura_detallBindingSource)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -92,22 +95,11 @@
             this.tabControl1.Controls.Add(this.Productes);
             this.tabControl1.Controls.Add(this.Factures);
             this.tabControl1.Controls.Add(this.FacturaDetall);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(3, 3);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(687, 407);
+            this.tabControl1.Size = new System.Drawing.Size(673, 401);
             this.tabControl1.TabIndex = 0;
-            // 
-            // productesBindingSource
-            // 
-            this.productesBindingSource.DataMember = "productes";
-            this.productesBindingSource.DataSource = this.pcgroundDataSet;
-            // 
-            // pcgroundDataSet
-            // 
-            this.pcgroundDataSet.DataSetName = "pcgroundDataSet";
-            this.pcgroundDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // Clients
             // 
@@ -115,32 +107,10 @@
             this.Clients.Location = new System.Drawing.Point(4, 22);
             this.Clients.Name = "Clients";
             this.Clients.Padding = new System.Windows.Forms.Padding(3);
-            this.Clients.Size = new System.Drawing.Size(679, 381);
+            this.Clients.Size = new System.Drawing.Size(665, 375);
             this.Clients.TabIndex = 1;
             this.Clients.Text = "Clients";
             this.Clients.UseVisualStyleBackColor = true;
-            // 
-            // clientsBindingSource
-            // 
-            this.clientsBindingSource.DataMember = "clients";
-            this.clientsBindingSource.DataSource = this.pcgroundDataSet;
-            // 
-            // clientsTableAdapter
-            // 
-            this.clientsTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.clientsTableAdapter = this.clientsTableAdapter;
-            this.tableAdapterManager.factura_detallTableAdapter = null;
-            this.tableAdapterManager.facturaTableAdapter = null;
-            this.tableAdapterManager.productesTableAdapter = this.productesTableAdapter;
-            this.tableAdapterManager.UpdateOrder = FacturerLitePro.pcgroundDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            // 
-            // productesTableAdapter
-            // 
-            this.productesTableAdapter.ClearBeforeFill = true;
             // 
             // clientsDataGridView
             // 
@@ -162,8 +132,9 @@
             this.clientsDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.clientsDataGridView.Location = new System.Drawing.Point(3, 3);
             this.clientsDataGridView.Name = "clientsDataGridView";
-            this.clientsDataGridView.Size = new System.Drawing.Size(673, 375);
+            this.clientsDataGridView.Size = new System.Drawing.Size(659, 369);
             this.clientsDataGridView.TabIndex = 0;
+          //  this.clientsDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.clientsDataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -231,25 +202,25 @@
             this.dataGridViewTextBoxColumn11.HeaderText = "E-mail";
             this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             // 
+            // clientsBindingSource
+            // 
+            this.clientsBindingSource.DataMember = "clients";
+            this.clientsBindingSource.DataSource = this.pcgroundDataSet;
+            // 
+            // pcgroundDataSet
+            // 
+            this.pcgroundDataSet.DataSetName = "pcgroundDataSet";
+            this.pcgroundDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // Productes
             // 
             this.Productes.Controls.Add(this.productesDataGridView);
             this.Productes.Location = new System.Drawing.Point(4, 22);
             this.Productes.Name = "Productes";
-            this.Productes.Size = new System.Drawing.Size(679, 381);
+            this.Productes.Size = new System.Drawing.Size(665, 375);
             this.Productes.TabIndex = 2;
             this.Productes.Text = "Productes";
             this.Productes.UseVisualStyleBackColor = true;
-            // 
-            // Factures
-            // 
-            this.Factures.Controls.Add(this.facturaDataGridView);
-            this.Factures.Location = new System.Drawing.Point(4, 22);
-            this.Factures.Name = "Factures";
-            this.Factures.Size = new System.Drawing.Size(679, 381);
-            this.Factures.TabIndex = 3;
-            this.Factures.Text = "Factures";
-            this.Factures.UseVisualStyleBackColor = true;
             // 
             // productesDataGridView
             // 
@@ -263,7 +234,7 @@
             this.productesDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.productesDataGridView.Location = new System.Drawing.Point(0, 0);
             this.productesDataGridView.Name = "productesDataGridView";
-            this.productesDataGridView.Size = new System.Drawing.Size(679, 381);
+            this.productesDataGridView.Size = new System.Drawing.Size(665, 375);
             this.productesDataGridView.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn12
@@ -284,14 +255,20 @@
             this.dataGridViewTextBoxColumn14.HeaderText = "Preu";
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             // 
-            // facturaBindingSource
+            // productesBindingSource
             // 
-            this.facturaBindingSource.DataMember = "factura";
-            this.facturaBindingSource.DataSource = this.pcgroundDataSet;
+            this.productesBindingSource.DataMember = "productes";
+            this.productesBindingSource.DataSource = this.pcgroundDataSet;
             // 
-            // facturaTableAdapter
+            // Factures
             // 
-            this.facturaTableAdapter.ClearBeforeFill = true;
+            this.Factures.Controls.Add(this.facturaDataGridView);
+            this.Factures.Location = new System.Drawing.Point(4, 22);
+            this.Factures.Name = "Factures";
+            this.Factures.Size = new System.Drawing.Size(679, 381);
+            this.Factures.TabIndex = 3;
+            this.Factures.Text = "Factures";
+            this.Factures.UseVisualStyleBackColor = true;
             // 
             // facturaDataGridView
             // 
@@ -340,24 +317,20 @@
             this.dataGridViewTextBoxColumn19.HeaderText = "IVA";
             this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
             // 
+            // facturaBindingSource
+            // 
+            this.facturaBindingSource.DataMember = "factura";
+            this.facturaBindingSource.DataSource = this.pcgroundDataSet;
+            // 
             // FacturaDetall
             // 
             this.FacturaDetall.Controls.Add(this.factura_detallDataGridView);
             this.FacturaDetall.Location = new System.Drawing.Point(4, 22);
             this.FacturaDetall.Name = "FacturaDetall";
-            this.FacturaDetall.Size = new System.Drawing.Size(679, 381);
+            this.FacturaDetall.Size = new System.Drawing.Size(665, 375);
             this.FacturaDetall.TabIndex = 4;
             this.FacturaDetall.Text = "Factures Detall";
             this.FacturaDetall.UseVisualStyleBackColor = true;
-            // 
-            // factura_detallBindingSource
-            // 
-            this.factura_detallBindingSource.DataMember = "factura_detall";
-            this.factura_detallBindingSource.DataSource = this.pcgroundDataSet;
-            // 
-            // factura_detallTableAdapter
-            // 
-            this.factura_detallTableAdapter.ClearBeforeFill = true;
             // 
             // factura_detallDataGridView
             // 
@@ -371,8 +344,9 @@
             this.factura_detallDataGridView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.factura_detallDataGridView.Location = new System.Drawing.Point(0, 0);
             this.factura_detallDataGridView.Name = "factura_detallDataGridView";
-            this.factura_detallDataGridView.Size = new System.Drawing.Size(679, 381);
+            this.factura_detallDataGridView.Size = new System.Drawing.Size(665, 375);
             this.factura_detallDataGridView.TabIndex = 0;
+            //this.factura_detallDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.factura_detallDataGridView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn20
             // 
@@ -392,29 +366,85 @@
             this.dataGridViewTextBoxColumn22.HeaderText = "Quantitat";
             this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
             // 
+            // factura_detallBindingSource
+            // 
+            this.factura_detallBindingSource.DataMember = "factura_detall";
+            this.factura_detallBindingSource.DataSource = this.pcgroundDataSet;
+            // 
+            // clientsTableAdapter
+            // 
+            this.clientsTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.clientsTableAdapter = this.clientsTableAdapter;
+            this.tableAdapterManager.factura_detallTableAdapter = null;
+            this.tableAdapterManager.facturaTableAdapter = null;
+            this.tableAdapterManager.productesTableAdapter = this.productesTableAdapter;
+            this.tableAdapterManager.UpdateOrder = FacturerLitePro.pcgroundDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            // 
+            // productesTableAdapter
+            // 
+            this.productesTableAdapter.ClearBeforeFill = true;
+            // 
+            // facturaTableAdapter
+            // 
+            this.facturaTableAdapter.ClearBeforeFill = true;
+            // 
+            // factura_detallTableAdapter
+            // 
+            this.factura_detallTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
+            this.tableLayoutPanel1.Controls.Add(this.button1, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.tabControl1, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(785, 407);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(682, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Hola";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(687, 407);
-            this.Controls.Add(this.tabControl1);
+            this.ClientSize = new System.Drawing.Size(785, 407);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.productesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcgroundDataSet)).EndInit();
             this.Clients.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientsDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcgroundDataSet)).EndInit();
             this.Productes.ResumeLayout(false);
-            this.Factures.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.productesDataGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.productesBindingSource)).EndInit();
+            this.Factures.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.facturaDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.facturaBindingSource)).EndInit();
             this.FacturaDetall.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.factura_detallBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.factura_detallDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.factura_detallBindingSource)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -462,6 +492,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
