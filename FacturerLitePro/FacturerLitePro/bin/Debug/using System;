@@ -1,0 +1,190 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml;
+
+namespace FacturerLitePro
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            
+            InitializeComponent();
+        }
+
+        private void clientsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.clientsBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.pcgroundDataSet);
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // TODO: This line of code loads data into the 'pcgroundDataSet.factura_detall' table. You can move, or remove it, as needed.
+            this.factura_detallTableAdapter.Fill(this.pcgroundDataSet.factura_detall);
+           
+            
+            // TODO: This line of code loads data into the 'pcgroundDataSet.factura' table. You can move, or remove it, as needed.
+            this.facturaTableAdapter.Fill(this.pcgroundDataSet.factura);
+            // TODO: This line of code loads data into the 'pcgroundDataSet.productes' table. You can move, or remove it, as needed.
+            this.productesTableAdapter.Fill(this.pcgroundDataSet.productes);
+            // TODO: This line of code loads data into the 'pcgroundDataSet.clients' table. You can move, or remove it, as needed.
+            this.clientsTableAdapter.Fill(this.pcgroundDataSet.clients);
+            DataSet dataSet = this.pcgroundDataSet;
+            ShowDataSet(dataSet);
+            DataTable table = this.pcgroundDataSet.factura_detall;
+            Console.WriteLine(table);
+
+            //DataTableHelper.WriteDataSetToXML(dataSet, "new.xml");
+            // Add ten rows.
+            DataRow row;
+            Console.WriteLine(dataSet.GetXml());
+            DataTableHelper.ReadXmlIntoDataSet(dataSet, "new.xml");
+            this.productesTableAdapter.Fill(this.pcgroundDataSet.productes);
+
+            /*for (int i = 0; i < 10; i++)
+            {
+                row = table.NewRow();
+                row["n_Factura"] = i;
+                row["id_Producte"] = i;
+                row["Quantitat"] =  i+5;
+                table.Rows.Add(row);
+            }*/
+        }
+
+        private void productesDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void clientsBindingNavigator_RefreshItems(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bindingNavigatorMoveNextItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Console.WriteLine("Gang");
+
+            
+
+        }
+
+      
+
+        public static void ShowDataSet(DataSet dataset)
+        {
+            foreach (DataTable table in dataset.Tables)
+            {
+                Console.WriteLine("Table {0}:", table.TableName);
+                ShowDataTable(table);
+            }
+        }
+
+        // Display the columns and value of DataTable.
+        private static void ShowDataTable(DataTable table)
+        {
+            foreach (DataColumn col in table.Columns)
+            {
+                Console.Write("{0,-14}", col.ColumnName);
+            }
+            Console.WriteLine("{0,-14}", "");
+
+            foreach (DataRow row in table.Rows)
+            {
+                if (row.RowState == DataRowState.Deleted)
+                {
+                    foreach (DataColumn col in table.Columns)
+                    {
+                        if (col.DataType.Equals(typeof(DateTime)))
+                        {
+                            Console.Write("{0,-14:d}", row[col, DataRowVersion.Original]);
+                        }
+                        else if (col.DataType.Equals(typeof(Decimal)))
+                        {
+                            Console.Write("{0,-14:C}", row[col, DataRowVersion.Original]);
+                        }
+                        else
+                        {
+                            Console.Write("{0,-14}", row[col, DataRowVersion.Original]);
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (DataColumn col in table.Columns)
+                    {
+                        if (col.DataType.Equals(typeof(DateTime)))
+                        {
+                            Console.Write("{0,-14:d}", row[col]);
+                        }
+                        else if (col.DataType.Equals(typeof(Decimal)))
+                        {
+                            Console.Write("{0,-14:C}", row[col]);
+                        }
+                        else
+                        {
+                            Console.Write("{0,-14}", row[col]);
+                        }
+                    }
+                }
+                Console.WriteLine("{0,-14}", "");
+            }
+        }
+
+        static class DataTableHelper
+        {
+            public static void WriteDataSetToXML(DataSet dataset, String xmlFileName)
+            {
+                using (FileStream fsWriterStream = new FileStream(xmlFileName, FileMode.Create))
+                {
+                    using (XmlTextWriter xmlWriter = new XmlTextWriter(fsWriterStream, Encoding.Unicode))
+                    {
+                        dataset.WriteXml(xmlWriter, XmlWriteMode.WriteSchema);
+                        Console.WriteLine("Write {0} to the File {1}.", dataset.DataSetName, xmlFileName);
+                        Console.WriteLine();
+                    }
+                }
+            }
+
+
+            public static void ReadXmlIntoDataSet(DataSet newDataSet, String xmlFileName)
+            {
+                using (FileStream fsReaderStream = new FileStream(xmlFileName, FileMode.Open))
+                {
+                    using (XmlTextReader xmlReader = new XmlTextReader(fsReaderStream))
+                    {
+                        newDataSet.ReadXml(xmlReader, XmlReadMode.ReadSchema);
+                    }
+                }
+            }
+        }
+
+       
+        /*
+// btnTest is object of button. This is how you add event for button
+btnTest.Click += new System.EventHandler(this.btnButton_Click);
+
+// its event handler
+
+void btnButton_Click(object sender, EventArgs e)
+{
+   // your code goes here
+}*/
+    }
+}

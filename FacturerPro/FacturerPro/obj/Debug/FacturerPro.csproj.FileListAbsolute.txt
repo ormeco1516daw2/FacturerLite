@@ -7,3 +7,12 @@ C:\Users\David Castillo\Documents\Visual Studio 2015\Projects\FacturerPro\Factur
 C:\Users\David Castillo\Documents\Visual Studio 2015\Projects\FacturerPro\FacturerPro\obj\Debug\FacturerPro.csproj.GenerateResource.Cache
 C:\Users\David Castillo\Documents\Visual Studio 2015\Projects\FacturerPro\FacturerPro\obj\Debug\FacturerPro.exe
 C:\Users\David Castillo\Documents\Visual Studio 2015\Projects\FacturerPro\FacturerPro\obj\Debug\FacturerPro.pdb
+C:\Users\usuario\Source\Repos\FacturerLite\FacturerPro\FacturerPro\bin\Debug\FacturerPro.exe.config
+C:\Users\usuario\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.exe
+C:\Users\usuario\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.pdb
+C:\Users\usuario\Source\Repos\FacturerLite\FacturerPro\FacturerPro\bin\Debug\FacturerPro.exe
+C:\Users\usuario\Source\Repos\FacturerLite\FacturerPro\FacturerPro\bin\Debug\FacturerPro.pdb
+C:\Users\usuario\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.csprojResolveAssemblyReference.cache
+C:\Users\usuario\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.Form1.resources
+C:\Users\usuario\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.Properties.Resources.resources
+C:\Users\usuario\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.csproj.GenerateResource.Cache

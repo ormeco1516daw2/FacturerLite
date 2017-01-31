@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 
 namespace FacturerPro
 {
@@ -60,6 +62,58 @@ namespace FacturerPro
                     clientsBindingNavigator.BindingSource = factura_detallBindingSource;
                     Console.WriteLine("3");
                     break;
+            }
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)//Exportar
+        {   
+            
+            DataSet dataSet = this.pcgroundDataSet;
+            DataTableHelper.WriteDataSetToXML(dataSet, "new.xml");
+        }
+
+        private void button2_Click(object sender, EventArgs e)//Importar
+        {
+            DataSet dataSet = this.pcgroundDataSet;
+            DataTableHelper.ReadXmlIntoDataSet(dataSet, "new.xml");
+        }
+    }
+
+    static class DataTableHelper
+    {
+        public static void WriteDataSetToXML(DataSet dataset, String xmlFileName)
+        {
+            try {
+                using (FileStream fsWriterStream = new FileStream(xmlFileName, FileMode.Create))
+                {
+                    using (XmlTextWriter xmlWriter = new XmlTextWriter(fsWriterStream, Encoding.Unicode))
+                    {
+                        dataset.WriteXml(xmlWriter, XmlWriteMode.WriteSchema);
+                        Console.WriteLine("Write {0} to the File {1}.", dataset.DataSetName, xmlFileName);
+                        Console.WriteLine();
+                    }
+                }
+                MessageBox.Show("Xml correctament guardat.");
+            } catch (Exception ex) {
+                MessageBox.Show("Quelcom ha anat malament!");
+            }
+            
+        }
+
+
+        public static void ReadXmlIntoDataSet(DataSet newDataSet, String xmlFileName)
+        {
+            using (FileStream fsReaderStream = new FileStream(xmlFileName, FileMode.Open))
+            {
+                using (XmlTextReader xmlReader = new XmlTextReader(fsReaderStream))
+                {
+                    newDataSet.ReadXml(xmlReader, XmlReadMode.ReadSchema);
+                }
             }
         }
     }
