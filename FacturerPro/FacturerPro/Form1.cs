@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace FacturerPro
 {
@@ -80,7 +81,7 @@ namespace FacturerPro
         private void button2_Click(object sender, EventArgs e)//Importar
         {
             DataSet dataSet = this.pcgroundDataSet;
-            DataTableHelper.ReadXmlIntoDataSet(dataSet, "new.xml");
+            DataTableHelper.ReadXmlIntoDataSet(dataSet, "old.xml");
         }
     }
 
@@ -108,12 +109,144 @@ namespace FacturerPro
 
         public static void ReadXmlIntoDataSet(DataSet newDataSet, String xmlFileName)
         {
-            using (FileStream fsReaderStream = new FileStream(xmlFileName, FileMode.Open))
+            /*using (FileStream fsReaderStream = new FileStream(xmlFileName, FileMode.Open))
             {
                 using (XmlTextReader xmlReader = new XmlTextReader(fsReaderStream))
                 {
                     newDataSet.ReadXml(xmlReader, XmlReadMode.ReadSchema);
                 }
+            }*/
+
+            // ShowDataSet(newDataSet);
+            /*XmlTextReader reader = new XmlTextReader("old.xml");
+            while (reader.Read())
+            {
+                switch (reader.NodeType)
+                {
+                    case XmlNodeType.Element: // The node is an element.
+
+                        Console.Write("<" + reader.Name);
+                        Console.WriteLine(">");
+                        break;
+                    case XmlNodeType.Text: //Display the text in each element.
+                        Console.WriteLine(reader.Value);
+                        break;
+                    case XmlNodeType.EndElement: //Display the end of the element.
+                        Console.Write("</" + reader.Name);
+                        Console.WriteLine(">");
+                        break;
+                }
+            }
+            Console.ReadLine();*/
+            XmlDocument doc = new XmlDocument();
+            doc.Load("old.xml");
+             //Taula Clients.
+             XmlNodeList elemListClients = doc.GetElementsByTagName("clients");
+             if (elemListClients.Count != 0)
+             {
+                 for (int i = 0; i < elemListClients.Count; i++)
+                 {
+                    // Console.WriteLine(elemListClients[i].InnerXml);
+                    XmlDocument xDoc = new XmlDocument();
+                    xDoc.LoadXml(elemListClients[i].InnerXml);
+                    Console.WriteLine(xDoc.GetElementsByTagName("Nom"));
+                    //elemListClients[i].InnerXml.GetElementsByTagName("clients");
+                }
+             }
+             
+            //Taula Producte.
+            XmlNodeList elemListProductes = doc.GetElementsByTagName("productes");
+             if (elemListProductes.Count != 0)
+             {
+                 for (int i = 0; i < elemListProductes.Count; i++)
+                 {
+                   
+                    /*XmlDocument xDoc = new XmlDocument();
+                    xDoc.LoadXml(elemListClients[i].InnerXml);
+                    Console.WriteLine(xDoc.GetElementsByTagName("Producte"));*/
+                     Console.WriteLine(elemListProductes[i].InnerXml);
+                }
+            }
+
+            //Taula Factura.
+            XmlNodeList elemListFatura = doc.GetElementsByTagName("factura");
+            if (elemListFatura.Count != 0)
+            {
+                for (int i = 0; i < elemListFatura.Count; i++)
+                {
+                    //Console.WriteLine(elemListFatura[i].InnerXml);
+                }
+            }
+            
+            //Taula Factura_Detall.
+            XmlNodeList elemListFaturaDetall = doc.GetElementsByTagName("factura_detall");
+            if (elemListFaturaDetall.Count != 0)
+            {
+                for (int i = 0; i < elemListFaturaDetall.Count; i++)
+                {
+                    //Console.WriteLine(elemListFaturaDetall[i].InnerXml);
+                }
+            }
+
+        }
+
+        public static void ShowDataSet(DataSet dataset)
+        {
+            foreach (DataTable table in dataset.Tables)
+            {
+                Console.WriteLine("Table {0}:", table.TableName);
+                ShowDataTable(table);
+            }
+        }
+
+
+        private static void ShowDataTable(DataTable table)
+        {
+            foreach (DataColumn col in table.Columns)
+            {
+                Console.Write("{0,-14}", col.ColumnName);
+            }
+            Console.WriteLine("{0,-14}", "");
+
+            foreach (DataRow row in table.Rows)
+            {
+                if (row.RowState == DataRowState.Deleted)
+                {
+                    foreach (DataColumn col in table.Columns)
+                    {
+                        if (col.DataType.Equals(typeof(DateTime)))
+                        {
+                            Console.Write("{0,-14:d}", row[col, DataRowVersion.Original]);
+                        }
+                        else if (col.DataType.Equals(typeof(Decimal)))
+                        {
+                            Console.Write("{0,-14:C}", row[col, DataRowVersion.Original]);
+                        }
+                        else
+                        {
+                            Console.Write("{0,-14}", row[col, DataRowVersion.Original]);
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (DataColumn col in table.Columns)
+                    {
+                        if (col.DataType.Equals(typeof(DateTime)))
+                        {
+                            Console.Write("{0,-14:d}", row[col]);
+                        }
+                        else if (col.DataType.Equals(typeof(Decimal)))
+                        {
+                            Console.Write("{0,-14:C}", row[col]);
+                        }
+                        else
+                        {
+                            Console.Write("{0,-14}", row[col]);
+                        }
+                    }
+                }
+                Console.WriteLine("{0,-14}", "");
             }
         }
     }
