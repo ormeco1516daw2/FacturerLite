@@ -81,7 +81,7 @@ namespace FacturerPro
         private void button2_Click(object sender, EventArgs e)//Importar
         {
             DataSet dataSet = this.pcgroundDataSet;
-            DataTableHelper.ReadXmlIntoDataSet(dataSet, "old.xml");
+            DataTableHelper.ReadXmlIntoDataSet(dataSet, "new.xml");
         }
     }
 
@@ -94,6 +94,7 @@ namespace FacturerPro
                 {
                     using (XmlTextWriter xmlWriter = new XmlTextWriter(fsWriterStream, Encoding.Unicode))
                     {
+                        //dataset.WriteXml(xmlWriter);
                         dataset.WriteXml(xmlWriter, XmlWriteMode.WriteSchema);
                         Console.WriteLine("Write {0} to the File {1}.", dataset.DataSetName, xmlFileName);
                         Console.WriteLine();
@@ -109,85 +110,56 @@ namespace FacturerPro
 
         public static void ReadXmlIntoDataSet(DataSet newDataSet, String xmlFileName)
         {
-            /*using (FileStream fsReaderStream = new FileStream(xmlFileName, FileMode.Open))
-            {
-                using (XmlTextReader xmlReader = new XmlTextReader(fsReaderStream))
-                {
-                    newDataSet.ReadXml(xmlReader, XmlReadMode.ReadSchema);
-                }
-            }*/
 
-            // ShowDataSet(newDataSet);
-            /*XmlTextReader reader = new XmlTextReader("old.xml");
-            while (reader.Read())
-            {
-                switch (reader.NodeType)
-                {
-                    case XmlNodeType.Element: // The node is an element.
-
-                        Console.Write("<" + reader.Name);
-                        Console.WriteLine(">");
-                        break;
-                    case XmlNodeType.Text: //Display the text in each element.
-                        Console.WriteLine(reader.Value);
-                        break;
-                    case XmlNodeType.EndElement: //Display the end of the element.
-                        Console.Write("</" + reader.Name);
-                        Console.WriteLine(">");
-                        break;
-                }
-            }
-            Console.ReadLine();*/
             XmlDocument doc = new XmlDocument();
-            doc.Load("old.xml");
-             //Taula Clients.
-             XmlNodeList elemListClients = doc.GetElementsByTagName("clients");
-             if (elemListClients.Count != 0)
-             {
-                 for (int i = 0; i < elemListClients.Count; i++)
-                 {
-                    // Console.WriteLine(elemListClients[i].InnerXml);
-                    XmlDocument xDoc = new XmlDocument();
-                    xDoc.LoadXml(elemListClients[i].InnerXml);
-                    Console.WriteLine(xDoc.GetElementsByTagName("Nom"));
-                    //elemListClients[i].InnerXml.GetElementsByTagName("clients");
-                }
-             }
-             
-            //Taula Producte.
-            XmlNodeList elemListProductes = doc.GetElementsByTagName("productes");
-             if (elemListProductes.Count != 0)
-             {
-                 for (int i = 0; i < elemListProductes.Count; i++)
-                 {
-                   
-                    /*XmlDocument xDoc = new XmlDocument();
-                    xDoc.LoadXml(elemListClients[i].InnerXml);
-                    Console.WriteLine(xDoc.GetElementsByTagName("Producte"));*/
-                     Console.WriteLine(elemListProductes[i].InnerXml);
-                }
-            }
-
-            //Taula Factura.
-            XmlNodeList elemListFatura = doc.GetElementsByTagName("factura");
-            if (elemListFatura.Count != 0)
+            doc.Load(xmlFileName);
+            XmlElement root = doc.DocumentElement;
+            XmlNodeList nodes = root.SelectNodes("/descendant-or-self::node()"); 
+            foreach (XmlNode node in nodes)
             {
-                for (int i = 0; i < elemListFatura.Count; i++)
-                {
-                    //Console.WriteLine(elemListFatura[i].InnerXml);
-                }
-            }
-            
-            //Taula Factura_Detall.
-            XmlNodeList elemListFaturaDetall = doc.GetElementsByTagName("factura_detall");
-            if (elemListFaturaDetall.Count != 0)
-            {
-                for (int i = 0; i < elemListFaturaDetall.Count; i++)
-                {
-                    //Console.WriteLine(elemListFaturaDetall[i].InnerXml);
-                }
-            }
+                switch (node.Name) {
 
+                    case "factura":
+                        XmlNodeList childones01 = node.ChildNodes;
+
+                        foreach (XmlNode node01 in childones01)
+                        {
+                            Console.WriteLine(node01.Name + " -> " + node01.InnerText);
+                        }
+                        Console.WriteLine();
+                        break;
+
+                    case "productes":
+                        XmlNodeList childones02 = node.ChildNodes;
+
+                        foreach (XmlNode node01 in childones02)
+                        {
+                            Console.WriteLine(node01.Name + " -> " + node01.InnerText);
+                        }
+                        Console.WriteLine();
+                        break;
+
+                    case "clients":
+                        XmlNodeList childones03 = node.ChildNodes;
+
+                        foreach (XmlNode node01 in childones03)
+                        {
+                            Console.WriteLine(node01.Name + " -> " + node01.InnerText);
+                        }
+                        Console.WriteLine();
+                        break;
+
+                    case "factura_detall":
+                        XmlNodeList childones04 = node.ChildNodes;
+
+                        foreach (XmlNode node01 in childones04)
+                        {
+                            Console.WriteLine(node01.Name + " -> " + node01.InnerText);
+                        }
+                        Console.WriteLine();
+                        break;
+                }
+            }
         }
 
         public static void ShowDataSet(DataSet dataset)
