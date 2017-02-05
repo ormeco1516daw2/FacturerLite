@@ -25,3 +25,5 @@ C:\Users\David Castillo\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\De
 C:\Users\David Castillo\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.csproj.GenerateResource.Cache
 C:\Users\David Castillo\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.exe
 C:\Users\David Castillo\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.pdb
+C:\Users\usuario\Source\Repos\FacturerLite\FacturerPro\FacturerPro\bin\Debug\MySql.Data.dll
+C:\Users\usuario\Source\Repos\FacturerLite\FacturerPro\FacturerPro\bin\Debug\MySql.Data.xml
