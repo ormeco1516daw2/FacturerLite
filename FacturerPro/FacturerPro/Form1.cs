@@ -315,7 +315,10 @@ namespace FacturerPro
 
 
         public static void UpdateBindingNavigator() {
-            MySqlDataAdapter datapter;
+            MySqlDataAdapter datapterClients;
+            MySqlDataAdapter datapterProductes;
+            MySqlDataAdapter datapterFactura;
+            MySqlDataAdapter datapterFacturaDetall;
             DataSet dset;
             MySql.Data.MySqlClient.MySqlConnection conn;
             string myConnectionString;
@@ -324,9 +327,18 @@ namespace FacturerPro
             myConnectionString = "Database = pcground; Password = root; Port = 3307; Server = localhost; User = root";
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
-            datapter = new MySqlDataAdapter("SELECT * FROM clients", conn);
+            datapterClients = new MySqlDataAdapter("SELECT * FROM clients", conn);
+            datapterProductes = new MySqlDataAdapter("SELECT * FROM productes", conn);
+            datapterFactura = new MySqlDataAdapter("SELECT * FROM factura", conn);
+            datapterFacturaDetall = new MySqlDataAdapter("SELECT * FROM factura_detall", conn);
             dset = new DataSet();
-            datapter.Fill(dset);
+            datapterClients.Fill(dset,"clients");
+            datapterProductes.Fill(dset,"productes");
+            datapterFactura.Fill(dset,"factura");
+            datapterFacturaDetall.Fill(dset,"factura_detall");
+
+            //Console.WriteLine(dset.Tables["factura"]);
+
             ShowDataSet(dset);
             //BindingSource1.DataSource = dset.Tables[0];
 
