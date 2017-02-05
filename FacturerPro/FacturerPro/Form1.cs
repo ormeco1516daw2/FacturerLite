@@ -44,7 +44,7 @@ namespace FacturerPro
             this.productesTableAdapter.Fill(this.pcgroundDataSet.productes);
             // TODO: This line of code loads data into the 'pcgroundDataSet.clients' table. You can move, or remove it, as needed.
             this.clientsTableAdapter.Fill(this.pcgroundDataSet.clients);
-
+            DataTableHelper.UpdateBindingNavigator();
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -315,17 +315,19 @@ namespace FacturerPro
 
 
         public static void UpdateBindingNavigator() {
-            SqlDataAdapter datapter;
+            MySqlDataAdapter datapter;
             DataSet dset;
             MySql.Data.MySqlClient.MySqlConnection conn;
             string myConnectionString;
+            /*const string DB_CONN_STR = "Server=localhost;Uid=root;Pwd=root;Database=pcground;";
+            MySqlConnection cn = new MySqlConnection(DB_CONN_STR);*/
             myConnectionString = "Database = pcground; Password = root; Port = 3307; Server = localhost; User = root";
             conn = new MySql.Data.MySqlClient.MySqlConnection();
             conn.ConnectionString = myConnectionString;
-            datapter = new SqlDataAdapter("SELECT * FROM clients", myConnectionString);
+            datapter = new MySqlDataAdapter("SELECT * FROM clients", conn);
             dset = new DataSet();
             datapter.Fill(dset);
-
+            ShowDataSet(dset);
             //BindingSource1.DataSource = dset.Tables[0];
 
 
