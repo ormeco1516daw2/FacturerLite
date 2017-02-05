@@ -16,3 +16,12 @@ C:\Users\usuario\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\Fac
 C:\Users\usuario\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.Form1.resources
 C:\Users\usuario\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.Properties.Resources.resources
 C:\Users\usuario\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.csproj.GenerateResource.Cache
+C:\Users\David Castillo\Source\Repos\FacturerLite\FacturerPro\FacturerPro\bin\Debug\FacturerPro.exe.config
+C:\Users\David Castillo\Source\Repos\FacturerLite\FacturerPro\FacturerPro\bin\Debug\FacturerPro.exe
+C:\Users\David Castillo\Source\Repos\FacturerLite\FacturerPro\FacturerPro\bin\Debug\FacturerPro.pdb
+C:\Users\David Castillo\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.csprojResolveAssemblyReference.cache
+C:\Users\David Castillo\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.Form1.resources
+C:\Users\David Castillo\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.Properties.Resources.resources
+C:\Users\David Castillo\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.csproj.GenerateResource.Cache
+C:\Users\David Castillo\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.exe
+C:\Users\David Castillo\Source\Repos\FacturerLite\FacturerPro\FacturerPro\obj\Debug\FacturerPro.pdb
