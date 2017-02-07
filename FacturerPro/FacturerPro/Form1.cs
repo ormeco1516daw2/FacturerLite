@@ -79,21 +79,42 @@ namespace FacturerPro
         }
 
         private void button1_Click(object sender, EventArgs e)//Exportar
-        {   
-            
+        {
+
             DataSet dataSet = this.pcgroundDataSet;
-            DataTableHelper.WriteDataSetToXML(dataSet, "new.xml");
+
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+
+            saveFileDialog1.Filter = "XML Files (*.xml)|*.xml";
+            saveFileDialog1.FilterIndex = 2;
+            saveFileDialog1.RestoreDirectory = true;
+
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string fullPath = Path.GetFullPath(saveFileDialog1.FileName);
+                Console.WriteLine(fullPath);
+                DataTableHelper.WriteDataSetToXML(dataSet, fullPath);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)//Importar
         {
-            DataSet dataSet = this.pcgroundDataSet;
-            DataTableHelper.ReadXmlIntoDataSet(dataSet, "old.xml");
-            datasetImportat = DataTableHelper.UpdateBindingNavigator();
-            clientsDataGridView.DataSource = datasetImportat.Tables[0];
-            productesDataGridView.DataSource = datasetImportat.Tables[1];
-            facturaDataGridView.DataSource = datasetImportat.Tables[2];
-            factura_detallDataGridView.DataSource = datasetImportat.Tables[3];
+            OpenFileDialog choofdlog = new OpenFileDialog();
+            choofdlog.Filter = "XML Files (*.xml)|*.xml";
+            choofdlog.FilterIndex = 1;
+            choofdlog.Multiselect = true;
+
+            if (choofdlog.ShowDialog() == DialogResult.OK)
+            {
+                string sFileName = choofdlog.FileName;
+                DataSet dataSet = this.pcgroundDataSet;
+                DataTableHelper.ReadXmlIntoDataSet(dataSet, sFileName);
+                datasetImportat = DataTableHelper.UpdateBindingNavigator();
+                clientsDataGridView.DataSource = datasetImportat.Tables[0];
+                productesDataGridView.DataSource = datasetImportat.Tables[1];
+                facturaDataGridView.DataSource = datasetImportat.Tables[2];
+                factura_detallDataGridView.DataSource = datasetImportat.Tables[3];
+            }
         }
     }
 
