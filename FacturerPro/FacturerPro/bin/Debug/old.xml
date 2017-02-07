@@ -1,14 +1,26 @@
-<pcgroundDataSet>
-	
+<pcgroundDataSet encoding="UTF-8">
+	<clients>
+		<id_Client>2</id_Client>
+		<Nom>a</Nom>
+		<Cognom1>b</Cognom1>
+		<Cognom2>c</Cognom2>
+		<Adreça>hola</Adreça>
+		<Codi_Postal>6666</Codi_Postal>
+		<Població>wwwww</Població>
+		<Província>wwww</Província>
+		<Telèfon>955555555</Telèfon>
+		<Fax>955555555</Fax>
+		<E-mail>ddd</E-mail>
+	</clients>
 	<factura>
-		<n_Factura>5</n_Factura>
+		<n_Factura>23</n_Factura>
 		<id_Client>1</id_Client>
 		<Data>2014-06-12T00:00:00+02:00</Data>
 		<Descompte>12</Descompte>
-		<IVA>12</IVA>
+		<IVA>1</IVA>
 	</factura>
 	<factura_detall>
-		<n_Factura>5</n_Factura>
+		<n_Factura>6</n_Factura>
 		<id_Producte>1</id_Producte>
 		<Quantitat>200</Quantitat>
 	</factura_detall>
@@ -28,7 +40,7 @@
 		<Preu>456</Preu>
 	</productes>
 	<productes>
-		<id_Producte>9/id_Producte>
+		<id_Producte>9</id_Producte>
 		<Producte>One Plus</Producte>
 		<Preu>234</Preu>
 	</productes>

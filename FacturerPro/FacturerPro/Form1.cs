@@ -17,15 +17,16 @@ namespace FacturerPro
 {
     public partial class Form1 : Form
     {
-
-        
-
+        public DataSet datasetImportat;
         
         public Form1()
         {
             InitializeComponent();
         }
+        /*public static DataGridView getGrid() {
 
+            return clientsDataGridView;
+        }*/
         private void clientsBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
             this.Validate();
@@ -44,7 +45,7 @@ namespace FacturerPro
             this.productesTableAdapter.Fill(this.pcgroundDataSet.productes);
             // TODO: This line of code loads data into the 'pcgroundDataSet.clients' table. You can move, or remove it, as needed.
             this.clientsTableAdapter.Fill(this.pcgroundDataSet.clients);
-            DataTableHelper.UpdateBindingNavigator();
+            
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -88,6 +89,11 @@ namespace FacturerPro
         {
             DataSet dataSet = this.pcgroundDataSet;
             DataTableHelper.ReadXmlIntoDataSet(dataSet, "old.xml");
+            datasetImportat = DataTableHelper.UpdateBindingNavigator();
+            clientsDataGridView.DataSource = datasetImportat.Tables[0];
+            productesDataGridView.DataSource = datasetImportat.Tables[1];
+            facturaDataGridView.DataSource = datasetImportat.Tables[2];
+            factura_detallDataGridView.DataSource = datasetImportat.Tables[3];
         }
     }
 
@@ -143,7 +149,8 @@ namespace FacturerPro
                             conn = new MySql.Data.MySqlClient.MySqlConnection();
                             conn.ConnectionString = myConnectionString;
                             MySqlCommand command = conn.CreateCommand();
-                            command.CommandText = "INSERT INTO clients (id_Client,Nom,Cognom1,Cognom2,Adreça,Codi_Postal,Població,Província,Telèfon,Fax,E-mail) VALUES (?id_Client,?Nom,?Cognom1,?Cognom2,?Adreça,?Codi_Postal,?Població,?Província,?Telèfon,?Fax,?E-mail)";
+                            //command.CommandText = "INSERT INTO clients (id_Client,Nom,Cognom1,Cognom2,Adreça,Codi_Postal,Població,Província,Telèfon,Fax,`E-mail`) VALUES (?id_Client,?Nom,?Cognom1,?Cognom2,?Adreça,?Codi_Postal,?Població,?Província,?Telèfon,?Fax,?E-mail)";
+                            command.CommandText = "INSERT INTO clients (id_Client,Nom,Cognom1,Cognom2,Adreça,Codi_Postal,Població,Província,Telèfon,Fax) VALUES (?id_Client,?Nom,?Cognom1,?Cognom2,?Adreça,?Codi_Postal,?Població,?Província,?Telèfon,?Fax)";
                             command.Parameters.AddWithValue("?id_Client", clients[0]);
                             command.Parameters.AddWithValue("?Nom", clients[1]);
                             command.Parameters.AddWithValue("?Cognom1", clients[2]);
@@ -154,7 +161,7 @@ namespace FacturerPro
                             command.Parameters.AddWithValue("?Província", clients[7]);
                             command.Parameters.AddWithValue("?Telèfon", clients[8]);
                             command.Parameters.AddWithValue("?Fax", clients[9]);
-                            command.Parameters.AddWithValue("?E-mail", clients[10]);
+                            //command.Parameters.AddWithValue("?E-mail", clients[10]);
                             conn.Open();
                             command.ExecuteNonQuery();
                         }
@@ -314,7 +321,7 @@ namespace FacturerPro
         }
 
 
-        public static void UpdateBindingNavigator() {
+        public static DataSet UpdateBindingNavigator() {
             MySqlDataAdapter datapterClients;
             MySqlDataAdapter datapterProductes;
             MySqlDataAdapter datapterFactura;
@@ -336,13 +343,12 @@ namespace FacturerPro
             datapterProductes.Fill(dset,"productes");
             datapterFactura.Fill(dset,"factura");
             datapterFacturaDetall.Fill(dset,"factura_detall");
-
             //Console.WriteLine(dset.Tables["factura"]);
-
-            ShowDataSet(dset);
+            //Form1.getGrid().DataSource = dset.Tables[0];
+            //ShowDataSet(dset);
             //BindingSource1.DataSource = dset.Tables[0];
 
-
+            return dset;
 
         }
 
